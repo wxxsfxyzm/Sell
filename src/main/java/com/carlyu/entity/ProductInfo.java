@@ -49,6 +49,9 @@ public class ProductInfo implements Serializable {
      * （1）常量接口
      * （2）枚举
      */
+    //（1）常量接口
+    // private Integer productStatus = Constant.PRODUCT_STATUS_UP;
+    //（2）枚举
     private Integer productStatus = ProductStatusEnum.UP.getCode();
     /**
      * 类目编号.
