@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %cyan(%-15.50(%logger{40})) :
+                %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+    </root>
+</configuration>
