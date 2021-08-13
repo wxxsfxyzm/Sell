@@ -3,6 +3,8 @@ package com.carlyu.controller;
 import com.carlyu.dao.UserDAO;
 import com.carlyu.entity.User;
 import com.carlyu.service.UserService;
+import com.carlyu.util.ResultVOUtil;
+import com.carlyu.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +47,7 @@ public class AdminController {
      * @return
      */
     @PostMapping(value = "/login")
-    public String login(
+    public ResultVO login(
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
             HttpServletRequest request) {
@@ -59,15 +61,18 @@ public class AdminController {
             if (Objects.equals(password, user.getPassword())) {
                 request.getSession().setAttribute("userInfo", username + " - " + password);
                 info = "登录成功";
+                return ResultVOUtil.success(0, info);
             } else {
                 info = "登录失败";
+                return ResultVOUtil.failLogin(-1, info);
             }
         } else
             log.info("没查找到！");
 
 
         log.info(info);
-        return info;
+        //return info;
+        return ResultVOUtil.failLogin(-2, info);
     }
 
     /**

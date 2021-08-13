@@ -10,7 +10,9 @@ import java.io.Serializable;
 @Data
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultVO<T> implements Serializable {
-    /* 序列化 ID */
+    /**
+     * 序列化 ID
+     */
     private static final long serialVersionUID = 1L;
     /**
      * 错误码.
