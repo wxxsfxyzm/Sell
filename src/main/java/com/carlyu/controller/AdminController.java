@@ -60,14 +60,16 @@ public class AdminController {
             // 登录认证，认证成功后将用户信息放到session中
             if (Objects.equals(password, user.getPassword())) {
                 request.getSession().setAttribute("userInfo", username + " - " + password);
-                info = "登录成功";
+                info = "登录成功！";
                 return ResultVOUtil.success(0, info);
             } else {
-                info = "登录失败";
+                info = "密码错误！";
                 return ResultVOUtil.failLogin(-1, info);
             }
-        } else
-            log.info("没查找到！");
+        } else {
+            info = "没查找到该用户！";
+            log.info(info);
+        }
 
 
         log.info(info);
