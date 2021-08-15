@@ -3,7 +3,9 @@ package com.carlyu.dto;
 import com.carlyu.entity.OrderDetail;
 import com.carlyu.enums.OrderStatusEnum;
 import com.carlyu.enums.PayStatusEnum;
+import com.carlyu.util.EnumUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -82,4 +84,21 @@ public class OrderDTO implements Serializable {
     @Transient
     // private List<OrderDetail> orderDetailList = new ArrayList<>();
     private List<OrderDetail> orderDetailList;
+
+    /**
+     * 获取 订单状态 枚举常量类
+     */
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    /**
+     * 获取 支付状态 枚举常量类
+     */
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
+
 }
