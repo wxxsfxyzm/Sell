@@ -1,8 +1,11 @@
 package com.carlyu.entity;
 
 import com.carlyu.enums.ProductStatusEnum;
+import com.carlyu.util.EnumUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
@@ -61,10 +64,21 @@ public class ProductInfo implements Serializable {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
     private Date createTime;
 
     /**
      * 更新时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
     private Date updateTime;
+
+    /**
+     * 获取产品的枚举类: 商品的各个状态都在里面
+     */
+    @JsonIgnore
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
+    }
+
 }

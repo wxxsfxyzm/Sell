@@ -11,8 +11,8 @@ public class LoginConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /*静态资源的位置*/
-        registry.addResourceHandler("/**/*").addResourceLocations("classpath:/static/");
-        registry.addResourceHandler("/**/*").addResourceLocations("classpath:/templates/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+        //registry.addResourceHandler("/**").addResourceLocations("classpath:/templates/");
         /*放行swagger*/
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
@@ -25,11 +25,11 @@ public class LoginConfig implements WebMvcConfigurer {
         String[] excludes = new String[]{
                 "/",
                 "/error",
-                "/admin/*",
+                "/admin/login",
                 "/api/*",
                 "/buyer/product/list"};
         registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/**")
+                .addPathPatterns("/admin/*")
                 .excludePathPatterns(excludes);
 
     }

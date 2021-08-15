@@ -27,8 +27,13 @@ public enum ResultEnum {
 
     CART_EMPTY(109, "购物车为空"),
 
-    ORDER_OWNER_ERROR(110, "该订单不属于当前用户");
+    ORDER_OWNER_ERROR(110, "该订单不属于当前用户"),
 
+    // WECHAT_MP_ERROR(111, "微信公众账号方面错误"),
+
+    ORDER_CANCEL_SUCCESS(112, "订单取消成功"),
+
+    ORDER_FINISH_SUCCESS(113, "订单完结成功");
 
     private final Integer code;
 
