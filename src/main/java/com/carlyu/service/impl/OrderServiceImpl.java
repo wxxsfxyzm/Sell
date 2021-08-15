@@ -124,6 +124,7 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = new OrderDTO();
         BeanUtils.copyProperties(orderMaster, orderDTO);
+        orderDTO.setOrderDetailList(orderDetailList);
         return orderDTO;
     }
 
@@ -138,7 +139,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 用转换器 将OrderMaster转换成OrderDTO
         List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
-        ;
+
         return new PageImpl<OrderDTO>(orderDTOList, pageable, orderMasterPage.getTotalElements());
 
 
@@ -258,4 +259,18 @@ public class OrderServiceImpl implements OrderService {
 
 
     }
+
+    /**
+     * 查询所有的订单列表
+     */
+    @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        // 带分页 查询所有的 订单列表
+        Page<OrderMaster> orderMasterPageList = orderMasterDAO.findAll(pageable);
+
+        // 将OrderMaster 转换成 OrderDTO
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPageList.getContent());
+        return new PageImpl<OrderDTO>(orderDTOList, pageable, orderMasterPageList.getTotalElements());
+    }
+
 }
