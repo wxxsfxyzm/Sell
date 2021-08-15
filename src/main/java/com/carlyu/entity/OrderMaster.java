@@ -76,7 +76,7 @@ public class OrderMaster implements Serializable {
     /**
      * 订单明细列表
      */
-    // 这个字段在表中不存在
+
     @Transient
     private List<OrderDetail> orderDetails;
 

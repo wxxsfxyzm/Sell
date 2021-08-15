@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 
 /**
  * 订单详情JavaBean --> 对应order_detail
- * Created by liyan on 2021/7/18.
  */
 @Entity
 @Data
