@@ -20,7 +20,9 @@ import java.util.Date;
 @Component
 @DynamicUpdate
 public class ProductCategory implements Serializable {
-    /* 序列化 ID */
+    /**
+     * 序列化 ID
+     */
     private static final long serialVersionUID = 1L;
     /**
      * 类目 id

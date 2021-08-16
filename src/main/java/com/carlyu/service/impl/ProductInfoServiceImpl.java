@@ -99,4 +99,51 @@ public class ProductInfoServiceImpl implements ProductInfoService {
             productInfoDAO.save(productInfo);  // 保存商品信息
         }
     }
+
+    /**
+     * 商品上架
+     */
+    @Override
+    public ProductInfo onSale(String productId) {
+        //  根据商品ID查询 商品信息
+        ProductInfo productInfo = productInfoDAO.findById(productId).orElse(null);
+
+        // 如果商品不存在 则抛出 "该商品不存在" 异常
+        if (productInfo == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+
+        // 如果商品状态已经是上架(0)了 则抛出 "商品状态不正确" 异常
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.UP) {
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+
+        // 更新商品的状态 将 下架(1)商品的状态 改成  商品上架(0)
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        return productInfoDAO.save(productInfo);  // 更新商品状态 为 上架0
+    }
+
+    /**
+     * 商品下架
+     */
+    @Override
+    public ProductInfo offSale(String productId) {
+        //  根据商品ID查询 商品信息
+        ProductInfo productInfo = productInfoDAO.findById(productId).orElse(null);
+
+        // 如果商品不存在 则抛出 "该商品不存在" 异常
+        if (productInfo == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+
+        // 如果商品状态已经是下架(1)了 则抛出 "商品状态不正确" 异常
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.DOWN) {
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+
+        // 更新商品的状态 将 上架(0)商品的状态 改成  商品下架(1)
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        return productInfoDAO.save(productInfo);  // 更新商品状态 为 下架1
+    }
+
 }

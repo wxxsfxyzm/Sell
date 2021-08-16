@@ -15,7 +15,7 @@
                     <div class="alert alert-dismissable alert-danger">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h4>
-                            操作错误!
+                            上架操作错误!
                         </h4>
                         <span class="alert-link">3</span>
                         <strong><span>秒后自动跳转</span></strong><br/>

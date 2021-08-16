@@ -64,7 +64,7 @@ public class AdminController {
                 return ResultVOUtil.success(0, info);
             } else {
                 info = "密码错误！";
-                return ResultVOUtil.failLogin(-1, info);
+                return ResultVOUtil.fail(-1, info);
             }
         } else {
             info = "没查找到该用户！";
@@ -74,7 +74,7 @@ public class AdminController {
 
         log.info(info);
         //return info;
-        return ResultVOUtil.failLogin(-2, info);
+        return ResultVOUtil.fail(-2, info);
     }
 
     /**

@@ -24,7 +24,7 @@ public class ResultVOUtil {
         return resultVO;
     }
 
-    public static ResultVO failLogin(Integer code, String msg) {
+    public static ResultVO fail(Integer code, String msg) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setMsg(msg);

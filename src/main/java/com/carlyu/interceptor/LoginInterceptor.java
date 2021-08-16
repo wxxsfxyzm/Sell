@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         HttpSession session = request.getSession();
         log.info("sessionId为：" + session.getId());
-        log.info("sessionContext: " + request.getRequestURI());
+        // log.info("sessionContext: " + request.getRequestURI());
 
         // 获取用户信息，如果没有用户信息直接返回提示信息
         Object userInfo = session.getAttribute("userInfo");

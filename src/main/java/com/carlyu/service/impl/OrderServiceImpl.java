@@ -119,7 +119,7 @@ public class OrderServiceImpl implements OrderService {
         // 根据订单ID 查询  订单明细信息列表
         List<OrderDetail> orderDetailList = orderDetailDAO.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
-            throw new SellException(ResultEnum.ORDERDETAIL_NOT_EXIST);
+            throw new SellException(ResultEnum.ORDER_DETAIL_NOT_EXIST);
         }
 
         OrderDTO orderDTO = new OrderDTO();
