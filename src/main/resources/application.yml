@@ -24,3 +24,7 @@ spring:
       static-locations: /static/**
   jackson:
     default-property-inclusion: non_null
+wechat:
+  # 公众账号 -- 授权
+  mpAppId: wx9c45e1659ef562b2  # 公众平台id
+  mpAppSecret: 0d278388837bb83a1b7e6bc4e30671df # 公众平台密钥
