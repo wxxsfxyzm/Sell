@@ -32,7 +32,7 @@ public class BuyerServiceImpl implements BuyerService {
         // 根据订单ID  查询单个订单
         OrderDTO orderDTO = orderService.findById(orderId);
         if (orderDTO == null) {
-            log.error("【取消订单】查不到改订单, orderId={}", orderId);
+            log.error("【取消订单】查不到该订单, orderId={}", orderId);
             return null;
         }
         return orderService.cancel(orderDTO);

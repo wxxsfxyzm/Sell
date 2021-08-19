@@ -28,18 +28,18 @@ public class OrderServiceImplTest {
     @Autowired
     private OrderService orderService; // 订单Service
 
-    private final String BUYER_OPENID = "1101110";
+    private final String BUYER_OPENID = "1231313214515";
 
     // 订单ID(该订单ID要在DB中存在)
-    private final String ORDER_ID = "1626841653412798517";
+    private final String ORDER_ID = "1629285246732722601";
 
 
     @Test
     public void create() throws Exception {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("清风");
+        orderDTO.setBuyerName("陈慧");
         orderDTO.setBuyerAddress("南京");
-        orderDTO.setBuyerPhone("123456789012");
+        orderDTO.setBuyerPhone("12256321225");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
 
         List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
