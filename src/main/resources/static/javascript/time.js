@@ -1,4 +1,5 @@
-$(function () {
+//老师的
+/*$(function () {
     // 使用匿名函数方法
     // 1秒调用一次
     setInterval(function () {
@@ -11,4 +12,22 @@ $(function () {
             $(".alert-link").text($(".alert-link").text() - 1);
         }
     }, 1000);
+});*/
+//我的
+$(document).ready(function () {
+    function jump(count) {
+        window.setTimeout(function () {
+            count--;
+            if (count > 0) {
+                $('.alert-link').html(count);
+                jump(count);
+            } else {
+                location.href = $('#hiddenUrl').val();
+                ;
+            }
+        }, 1000);
+    }
+
+    jump(3);
 });
+
