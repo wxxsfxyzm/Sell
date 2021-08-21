@@ -24,7 +24,6 @@ public class WechatController {
 
     /**
      * 公众号授权
-     * <p>
      * 获取公众号的openid信息
      */
 

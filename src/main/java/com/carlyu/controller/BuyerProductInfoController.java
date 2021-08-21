@@ -41,7 +41,7 @@ public class BuyerProductInfoController {
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
         // TODO (2)查询商品类目列表 (1)和(2) 一次性查询
         /*List<Integer> categoryTypeList = new ArrayList<Integer>();
-        for (ProductInfo productInfo : productInfoList){// 从 查询到所有的上架商品中取出所有的 商品类目编号 productInfo.getCategoryType() 设置到 查询商品类目列表中
+        for (ProductInfo productInfo : productInfoList){ // 从 查询到所有的上架商品中取出所有的 商品类目编号 productInfo.getCategoryType() 设置到 查询商品类目列表中
         categoryTypeList.add(productInfo.getCategoryType());
         } */
         // 查询不要放在循环里

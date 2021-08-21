@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 @CrossOrigin
@@ -75,33 +74,6 @@ public class AdminController {
         log.info(info);
         //return info;
         return ResultVOUtil.fail(-2, info);
-    }
-
-    /**
-     * 登出操作
-     *
-     * @param request
-     * @return
-     */
-    @GetMapping(value = "/logout")
-    public String logout(HttpServletRequest request) {
-        String info = "登出操作";
-        log.info(info);
-        HttpSession session = request.getSession();
-
-        // 将用户信息从session中删除
-        session.removeAttribute("userInfo");
-
-        Object userInfo = session.getAttribute("userInfo");
-        if (userInfo == null) {
-            info = "登出成功";
-        } else {
-            info = "登出失败";
-        }
-        log.info(info);
-
-        return info;
-
     }
 
 }

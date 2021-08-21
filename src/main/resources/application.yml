@@ -1,9 +1,9 @@
 spring:
   profiles:
-    active: dev
+    active: prod
   devtools:
     restart:
-      enabled: true  #设置开启热部署
+      enabled: false  #设置开启热部署
   freemarker:
     suffix: .ftl   #设定ftl文件路径
     cache: false    #页面不加载缓存，修改即时生效

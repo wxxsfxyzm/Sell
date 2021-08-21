@@ -22,14 +22,18 @@ public class LoginConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        final String[] adds = new String[]{
+                "/admin/*",
+                "/seller/**/*"
+        };
         String[] excludes = new String[]{
                 "/",
                 "/error",
+                "/seller/logout",
                 "/admin/login",
-                "/api/*",
-                "/buyer/product/list"};
+                "/api/*"};
         registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/admin/*")
+                .addPathPatterns(adds)
                 .excludePathPatterns(excludes);
 
     }
