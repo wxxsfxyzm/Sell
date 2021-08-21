@@ -12,10 +12,10 @@ public final class RedisUtil {
     //Redis的端口号
     private static final int PORT = 6379;
     //访问密码
-    private static final String AUTH = "system";
+    private static final String AUTH = "123456";
     //可用连接实例的最大数目，默认值为8；
     //如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
-    private static final int MAX_ACTIVE = 1024;
+    private static final int MAX_ACTIVE = 5000;
     //控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。
     private static final int MAX_IDLE = 200;
     //等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException；
