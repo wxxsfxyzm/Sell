@@ -14,10 +14,10 @@ public class LoginConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
         //registry.addResourceHandler("/**").addResourceLocations("classpath:/templates/");
         /*放行swagger*/
-        registry.addResourceHandler("swagger-ui.html")
+        /*registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");*/
     }
 
     @Override
