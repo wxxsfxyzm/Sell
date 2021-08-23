@@ -17,32 +17,31 @@ function onDocumentReady() {
         if (!name.length) {
             valid = false;
             $("#emptyType").removeClass('hide');
-        } else {
+        } else
             $("#emptyType").addClass('hide');
-            $.ajax(
-                {
-                    "url": "newCategoryTypeDuplicateCheck",
-                    "data": {
-                        "categoryType": $("#categoryType").val(),
-                    },
-                    "dataType": "text",
-                    "type": "post",
-                    "success": function (result) {
-                        console.log(result);
-                        var jsonData = JSON.parse(result);
-                        if (!jsonData.code) {// 请求成功
-                            console.log(jsonData.msg);
-                            valid = true;
-                            $("#duplicateType").addClass("hide");
-                        } else {
-                            console.log(jsonData.msg);
-                            valid = false;
-                            $("#duplicateType").removeClass("hide");
-                        }
+        $.ajax(
+            {
+                "url": "${springMacroRequestContext.getContextPath()}/seller/category/newCategoryTypeDuplicateCheck",
+                "data": {
+                    "categoryType": $("#categoryType").val(),
+                },
+                "dataType": "text",
+                "type": "post",
+                "success": function (result) {
+                    console.log(result);
+                    var jsonData = JSON.parse(result);
+                    if (!jsonData.code) {// 请求成功
+                        console.log(jsonData.msg);
+                        valid = true;
+                        $("#duplicateType").addClass("hide");
+                    } else {
+                        console.log(jsonData.msg);
+                        valid = false;
+                        $("#duplicateType").removeClass("hide");
                     }
                 }
-            );
-        }
+            }
+        );
     });
     $('form').submit(function (e) {
         if (valid)
