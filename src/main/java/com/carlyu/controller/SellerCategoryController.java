@@ -23,7 +23,6 @@ import java.util.Map;
  * 卖家类目Controller
  */
 @Controller
-//@EnableRedisHttpSession
 @RequestMapping("/seller/category")
 @Slf4j
 public class SellerCategoryController {

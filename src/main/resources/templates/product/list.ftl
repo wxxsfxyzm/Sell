@@ -48,10 +48,8 @@
                                             <td>${productInfo_index + 1}</td>
                                             <td>${productInfo.productId}</td>
                                             <td>${productInfo.productName}</td>
-                                            <td><img height="100" width="100"
-                                                     src="http://localhost:8080/${productInfo.productIcon}"
+                                            <td><img height="100" width="100" src="${productInfo.productIcon}"
                                                      alt="该图片不存在!"></td>
-                                            <!--图片在本地，加上localhost-->
                                             <td>${productInfo.productPrice}</td>
                                             <td>${productInfo.productStock}</td>
                                             <td>${productInfo.productDescription}</td>

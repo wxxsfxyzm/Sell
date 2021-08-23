@@ -2,19 +2,22 @@ package com.carlyu.controller;
 
 import com.carlyu.entity.User;
 import com.carlyu.service.UserService;
+import com.carlyu.util.CookieUtil;
+import com.carlyu.util.RedisUtil;
 import com.carlyu.util.ResultVOUtil;
 import com.carlyu.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
+import java.util.UUID;
 
 @CrossOrigin
 @RestController
-@EnableRedisHttpSession
 @RequestMapping("/admin")
 @Slf4j
 public class AdminController {
@@ -44,7 +47,7 @@ public class AdminController {
      * @param request
      * @return
      */
-    @PostMapping(value = "/login")
+    /*@PostMapping(value = "/login")
     public ResultVO login(
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
@@ -58,7 +61,6 @@ public class AdminController {
             // 登录认证，认证成功后将用户信息放到session中
             if (Objects.equals(password, user.getPassword())) {
                 request.getSession().setAttribute("userInfo", username + " - " + password);
-                log.info("sessionId为：" + request.getSession().getId());
                 info = "登录成功！";
                 return ResultVOUtil.success(0, info);
             } else {
@@ -74,7 +76,8 @@ public class AdminController {
         //return info;
         return ResultVOUtil.fail(-2, info);
     }
-    /*@PostMapping(value = "/login")
+*/
+    @PostMapping(value = "/login")
     public ResultVO login(
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
@@ -104,16 +107,14 @@ public class AdminController {
             // 登录认证，认证成功后将用户信息放到session中
             if (Objects.equals(password, user.getPassword())) {
                 String userInfo = String.format("{username:%s,password:%s}", username, password);
+                request.getSession().setAttribute("userInfo", userInfo);
 
                 RedisUtil.set(key, userInfo, 30 * 60 * 1000);
                 // 将Session的Key写入到用户浏览器cookie
                 Cookie cookie = new Cookie("sid", key);
-                cookie.setPath("/");
-                cookie.setMaxAge(60 * 60 * 24);
                 response.addCookie(cookie);
                 log.info("sid->" + key);
 
-                request.getSession().setAttribute("userInfo", userInfo);
                 info = "登录成功！";
                 return ResultVOUtil.success(0, info);
             } else {
@@ -128,6 +129,6 @@ public class AdminController {
         log.info(info);
         //return info;
         return ResultVOUtil.fail(-2, info);
-    }*/
+    }
 
 }
