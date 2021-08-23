@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
+//@EnableRedisHttpSession
 @RequestMapping("/seller/category")
 @Slf4j
 public class SellerCategoryCheck {

@@ -43,7 +43,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>商品图片</label>
-                                    <img height="100px;" width="100px;" src="${(product.productIcon)!''}"
+                                    <img height="100px;" width="100px;"
+                                         src="http://localhost:8080/${(product.productIcon)!''}"
                                          alt="该图片不存在!"/> <br/>
                                     <input id="productIcon" name="productIcon" type="text"
                                            value="${(product.productIcon)!''}" width="50%"/>

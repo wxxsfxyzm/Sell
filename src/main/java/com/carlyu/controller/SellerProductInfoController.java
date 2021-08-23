@@ -30,6 +30,7 @@ import java.util.Map;
  * 卖家端商品Controller
  */
 @Controller
+//@EnableRedisHttpSession
 @RequestMapping("/seller/product")
 public class SellerProductInfoController {
     /**

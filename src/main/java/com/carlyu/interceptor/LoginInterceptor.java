@@ -1,7 +1,5 @@
 package com.carlyu.interceptor;
 
-import com.carlyu.util.CookieUtil;
-import com.carlyu.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -9,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 登陆状态拦截器
@@ -25,13 +24,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         log.info("==========登录状态拦截");
 
-        String key = CookieUtil.getCookie(request, "sid");
-        /*//HttpSession session = request.getSession();
-        //log.info("sessionId为：" + session.getId());
-        // log.info("sessionContext: " + request.getRequestURI());
+        // String key = CookieUtil.getCookie(request, "sid");
 
-        // 获取用户信息，如果没有用户信息直接返回提示信息
-        //Object userInfo = session.getAttribute("userInfo");
+        HttpSession session = request.getSession();
+        log.info("sessionId为：" + session.getId());
+        log.info("sessionContext: " + request.getRequestURI());
+
+        //获取用户信息，如果没有用户信息直接返回提示信息
+        Object userInfo = session.getAttribute("userInfo");
         if (userInfo == null) {
             log.info("没有登录");
             // return true;
@@ -41,8 +41,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             log.info("已经登录过啦，用户信息为：" + session.getAttribute("userInfo"));
         }
 
-        return true;*/
-        String userInfo = null;
+        return true;
+/*        String userInfo = null;
         if (key != null) {
             userInfo = RedisUtil.get(key);
             log.info(userInfo);
@@ -58,7 +58,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             log.info("已经登录过啦，用户信息为：" + userInfo);
         }
 
-        return true;
+        return true;*/
     }
 
     @Override

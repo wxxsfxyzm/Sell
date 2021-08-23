@@ -1,9 +1,9 @@
 spring:
   profiles:
-    active: prod
+    active: dev
   devtools:
     restart:
-      enabled: false  #设置开启热部署
+      enabled: true  #设置开启热部署
   freemarker:
     suffix: .ftl   #设定ftl文件路径
     cache: false    #页面不加载缓存，修改即时生效
@@ -17,6 +17,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: spring:session:sell
   mvc:
     static-path-pattern: /static/**
   web:
@@ -24,6 +29,12 @@ spring:
       static-locations: /static/**
   jackson:
     default-property-inclusion: non_null
+  redis:
+    database: 0
+    host: 192.168.31.225
+    port: 6379
+    password: 123456
+
 wechat:
   # 公众账号 -- 授权
   mpAppId: wx9c45e1659ef562b2  # 公众平台id
