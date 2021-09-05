@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer userId) {
+    public User findById(String userId) {
         //List<User> user = userDAO.findAll();
         for (User singleUser : userDAO.findAll()) {
             // log.info(singleUser.toString());

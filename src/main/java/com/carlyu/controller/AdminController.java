@@ -76,7 +76,7 @@ public class AdminController {
 */
     @PostMapping(value = "/login")
     public ResultVO login(
-            @RequestParam(value = "userid") Integer userid,
+            @RequestParam(value = "userid") String userid,
             // @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
             HttpServletRequest request,
@@ -144,7 +144,7 @@ public class AdminController {
      */
     @PostMapping("/register")
     public ResultVO register(
-            @RequestParam(value = "userid") Integer userid,
+            @RequestParam(value = "userid") String userid,
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
             HttpServletRequest request,
