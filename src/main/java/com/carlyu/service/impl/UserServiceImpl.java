@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -18,8 +17,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByName(String username) {
-        List<User> user = userDAO.findAll();
-        for (User singleUser : user) {
+        //List<User> user = userDAO.findAll();
+        for (User singleUser : userDAO.findAll()) {
             // log.info(singleUser.toString());
             if (Objects.equals(singleUser.getUsername(), username)) {
                 log.info("查找到了！");
@@ -27,5 +26,23 @@ public class UserServiceImpl implements UserService {
             }
         }
         return null;
+    }
+
+    @Override
+    public User findById(Integer userId) {
+        //List<User> user = userDAO.findAll();
+        for (User singleUser : userDAO.findAll()) {
+            // log.info(singleUser.toString());
+            if (Objects.equals(singleUser.getUserId(), userId)) {
+                log.info("查找到了！");
+                return singleUser;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public User save(User user) {
+        return userDAO.save(user);
     }
 }

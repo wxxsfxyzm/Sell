@@ -31,6 +31,7 @@ public class LoginConfig implements WebMvcConfigurer {
                 "/error",
                 "/seller/logout",
                 "/admin/login",
+                "/admin/register",
                 "/api/*"};
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns(adds)

@@ -47,7 +47,8 @@ public class BuyerProductInfoController {
         // 查询不要放在循环里
         // 查询商品类目列表
         List<Integer> categoryTypeList = // 查询商品类目列表
-                productInfoList.stream().map(e -> e.getCategoryType()).collect(Collectors.toList());
+                productInfoList.stream().map(ProductInfo::getCategoryType)
+                        .collect(Collectors.toList());
         List<ProductCategory> productCategoryList =
                 productCategoryService.findByCategoryTypeIn(categoryTypeList);
         // TODO (3)拼接数据

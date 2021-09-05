@@ -49,7 +49,7 @@ public class LogoutController {
         log.info(info);
 
         map.put("msg", info);
-        map.put("url", "http://192.168.31.225/admin");
+        map.put("url", "http://www.carlyu.top/admin");
 
         // response.sendRedirect("http://192.168.31.100:8081");
         return new ModelAndView("common/logout_success", map);
