@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
         //List<User> user = userDAO.findAll();
         for (User singleUser : userDAO.findAll()) {
             // log.info(singleUser.toString());
-            if (Objects.equals(singleUser.getUserId(), userId)) {
+            if (Objects.equals(singleUser.getUserid(), userId)) {
                 log.info("查找到了！");
                 return singleUser;
             }

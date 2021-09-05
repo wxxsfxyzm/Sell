@@ -81,6 +81,8 @@ public class AdminController {
             @RequestParam(value = "password") String password,
             HttpServletRequest request,
             HttpServletResponse response) {
+        if (Objects.equals(userid, "195030320"))
+            return ResultVOUtil.fail(-1, "牛马，你不配进入");
         String info = "登录逻辑";
         log.info(info +
                 ": userid = " +
@@ -164,7 +166,7 @@ public class AdminController {
             userService.save(user);
             log.info(userService.findById(userid).toString());
             info = "注册成功";
-            return ResultVOUtil.success(0, info);
+            return ResultVOUtil.success(userService.findById(userid));
         } else { // 用户名重复
             info = "学号重复";
             return ResultVOUtil.success(1, info);

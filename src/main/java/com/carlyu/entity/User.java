@@ -21,7 +21,7 @@ public class User implements Serializable {
     @Id
     // @GeneratedValue
     @Column(name = "student_id")
-    private String userId;
+    private String userid;
 
     @Column(name = "student_name")
     private String username;
@@ -35,10 +35,10 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(String userId,
+    public User(String userid,
                 String username,
                 String password) {
-        this.userId = userId;
+        this.userid = userid;
         this.username = username;
         this.password = password;
         this.balance = BigDecimal.valueOf(0.00);
