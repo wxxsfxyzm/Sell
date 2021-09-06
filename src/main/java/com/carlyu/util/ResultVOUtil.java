@@ -7,7 +7,10 @@ import com.carlyu.vo.ResultVO;
  */
 public class ResultVOUtil {
     /**
-     * JSON 数据 成功返回
+     * 成功
+     *
+     * @param object 传入一个对象
+     * @return JSON
      */
     public static ResultVO success(Object object) {
         ResultVO resultVO = new ResultVO();
@@ -17,6 +20,28 @@ public class ResultVOUtil {
         return resultVO;
     }
 
+    /**
+     * 成功
+     *
+     * @param msg    信息
+     * @param object 传入一个对象
+     * @return JSON
+     */
+    public static ResultVO success(String msg, Object object) {
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(0);
+        resultVO.setMsg(msg);
+        resultVO.setData(object);
+        return resultVO;
+    }
+
+    /**
+     * 成功
+     *
+     * @param code code
+     * @param msg  信息
+     * @return JSON
+     */
     public static ResultVO success(Integer code, String msg) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
@@ -24,6 +49,13 @@ public class ResultVOUtil {
         return resultVO;
     }
 
+    /**
+     * 失败
+     *
+     * @param code code
+     * @param msg  信息
+     * @return JSON
+     */
     public static ResultVO fail(Integer code, String msg) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
