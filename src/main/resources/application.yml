@@ -9,7 +9,7 @@ spring:
     cache: false    #页面不加载缓存，修改即时生效
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.31.225:3306/weixinxiaochengxu?characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://www.carlyu.top/weixinxiaochengxu?characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
   jpa:
